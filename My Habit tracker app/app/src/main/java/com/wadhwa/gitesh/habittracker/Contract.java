@@ -9,7 +9,7 @@ public class Contract {
         public final static String TABLE_NAME = "Habits";
         /*second string for id.*/
         public final static String _ID = BaseColumns._ID;
-        /*third srting for column....habit*/
+        /*third string for column....habit*/
         public final static String COLUMN_HABIT = "habit";
         /*forth string for duration...*/
         public final static String COLUMN_DURATION = "duration";
