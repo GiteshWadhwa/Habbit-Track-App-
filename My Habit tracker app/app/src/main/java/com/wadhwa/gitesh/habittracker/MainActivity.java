@@ -10,7 +10,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         TextView displayView = (TextView) findViewById(R.id.View);
-        /*---------------------here we set all habbits according to habit db helper..---------------------------------------*/
         HabitDbHelper habitDbHelper = new HabitDbHelper(this);
         habitDbHelper.insertHabit(Contract.HabitEntry.HABIT_WORK,
                 "2 hours");
@@ -20,16 +19,14 @@ public class MainActivity extends AppCompatActivity {
                 "1 hour");
         Cursor cursor = habitDbHelper.readHabits();
         /*for displaying the database..*/
-        displayView.setText("The habit table contains " + cursor.getCount() + " habits.\n\n");
+        displayView.setText("The habit track table contains " + cursor.getCount() + " all habits.\n\n");
         /*for append the database....*/
         displayView.append(Contract.HabitEntry._ID + " - " +
                 Contract.HabitEntry.COLUMN_HABIT + "-" +
                 Contract.HabitEntry.COLUMN_DURATION + "\n");
-        //first int is for id & second column is for habit &third int is for duration...
         int idColumnIndex = cursor.getColumnIndex(Contract.HabitEntry._ID);
         int habitColumnIndex = cursor.getColumnIndex(Contract.HabitEntry.COLUMN_HABIT);
         int durationColumnIndex = cursor.getColumnIndex(Contract.HabitEntry.COLUMN_DURATION);
-        /*conditions for moving habbits..*/
         while (cursor.moveToNext())
         {
             int currentID = cursor.getInt(idColumnIndex);
